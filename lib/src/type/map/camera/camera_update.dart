@@ -43,8 +43,7 @@ class NCameraUpdate with NMessageableWithMap {
         _signature = signature;
 
   /// NCameraPosition 객체를 이용해 NCameraUpdate 객체를 생성합니다.
-  factory NCameraUpdate.fromCameraPosition(NCameraPosition position) =>
-      NCameraUpdate.withParams(
+  factory NCameraUpdate.fromCameraPosition(NCameraPosition position) => NCameraUpdate.withParams(
         target: position.target,
         zoom: position.zoom,
         tilt: position.tilt,
@@ -58,8 +57,7 @@ class NCameraUpdate with NMessageableWithMap {
   factory NCameraUpdate.zoomOut() => NCameraUpdate.zoomBy(-1);
 
   /// 줌 레벨을 상대적으로 설정합니다.
-  factory NCameraUpdate.zoomBy(double delta) =>
-      NCameraUpdate.withParams(zoomBy: delta);
+  factory NCameraUpdate.zoomBy(double delta) => NCameraUpdate.withParams(zoomBy: delta);
 
   /// 간단하게 특정 지점 혹은 줌 레벨만을 지정하기 위해 사용하는 생성자입니다.
   factory NCameraUpdate.scrollAndZoomTo({NLatLng? target, double? zoom}) =>
@@ -91,10 +89,8 @@ class NCameraUpdate with NMessageableWithMap {
   }
 
   /// NLatLngBounds에 해당하는 영역을 온전하게 보여주는 NCameraUpdate 객체를 생성합니다.
-  factory NCameraUpdate.fitBounds(NLatLngBounds bounds,
-          {EdgeInsets? padding}) =>
-      NCameraUpdate._(
-          bounds: bounds, boundsPadding: padding, signature: "fitBounds");
+  factory NCameraUpdate.fitBounds(NLatLngBounds bounds, {EdgeInsets? padding}) =>
+      NCameraUpdate._(bounds: bounds, boundsPadding: padding, signature: "fitBounds");
 
   /// 카메라의 이동 기준점을 설정하는 메서드입니다.
   /// 기본값은 화면 중앙을 의미하는 `NPoint(0.5, 0.5)`입니다.
@@ -135,5 +131,5 @@ class NCameraUpdate with NMessageableWithMap {
       }, sign: _signature);
 
   static const defaultMovingAnimation = NCameraAnimation.easing;
-  static const defaultMovingDuration = Duration(milliseconds: 800);
+  static const defaultMovingDuration = Duration(milliseconds: 300);
 }
